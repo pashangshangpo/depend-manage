@@ -1,0 +1,22 @@
+{
+  "name": "download-depend",
+  "version": "0.0.1",
+  "description": "依赖下载工具",
+  "scripts": {},
+  "bin": {
+    "peak": "bin/download-depend.js"
+  },
+  "keywords": [
+    "frontend",
+    "workflow"
+  ],
+  "files": [
+    "bin/"
+  ],
+  "author": "https://github.com/pashangshangpo",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.19.0",
+    "shell-tool": "https://github.com/pashangshangpo/shell-tool.git"
+  }
+}
