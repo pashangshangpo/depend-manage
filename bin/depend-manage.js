@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 const Cli = require('commander')
-const { Path } = require('node-tool')
-const { Git, CheckYarnInstall, Exec } = require('shell-tool')
+const { Path } = require('@xiaozhihua/node-tool')
+const { Git, CheckYarnInstall, Exec } = require('@xiaozhihua/shell-tool')
 
 const DownLoadDepend = async ({ repos, output, install } = config) => {
   let all = []
