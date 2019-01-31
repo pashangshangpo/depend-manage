@@ -4,7 +4,7 @@
   "description": "依赖下载工具",
   "scripts": {},
   "bin": {
-    "peak": "bin/download-depend.js"
+    "download-depend": "bin/download-depend.js"
   },
   "keywords": [
     "frontend",
@@ -17,6 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^2.19.0",
+    "node-tool": "https://github.com/pashangshangpo/node-tool.git",
     "shell-tool": "https://github.com/pashangshangpo/shell-tool.git"
   }
 }

@@ -59,7 +59,7 @@ minimatch@^3.0.4:
 
 "node-tool@https://github.com/pashangshangpo/node-tool.git":
   version "0.1.0"
-  resolved "https://github.com/pashangshangpo/node-tool.git#8cfd4bc914cf700fea026c4a85bff30b84824152"
+  resolved "https://github.com/pashangshangpo/node-tool.git#ca28933ca80ecf20b825ab1307f8df9bb7178feb"
 
 once@^1.3.0:
   version "1.4.0"
@@ -89,7 +89,7 @@ resolve@^1.1.6:
 
 "shell-tool@https://github.com/pashangshangpo/shell-tool.git":
   version "0.1.0"
-  resolved "https://github.com/pashangshangpo/shell-tool.git#1abae4296e909a2ece3d9354e8e00cb31d63d597"
+  resolved "https://github.com/pashangshangpo/shell-tool.git#9d7dd08de7ec402b53ab4ef5185f105a3195b0bc"
   dependencies:
     node-tool "https://github.com/pashangshangpo/node-tool.git"
     shelljs "^0.8.3"
