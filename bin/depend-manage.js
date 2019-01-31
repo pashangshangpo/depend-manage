@@ -11,7 +11,7 @@ const DownLoadDepend = async ({ repos, output, install } = config) => {
 
   for (let repo of repos) {
     let gitPath = repo
-    let installDepend = install || true
+    let installDepend = install != null ? install : true
 
     if (typeof repo === 'object') {
       gitPath = repo.url
