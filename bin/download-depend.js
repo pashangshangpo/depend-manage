@@ -58,12 +58,13 @@ Promise.resolve().then(async () => {
     .option('-c, --config [config]', '配置文件路径')
     .parse(process.argv)
 
-  if (!Cli.config) {
-    console.log('没有设置配置文件')
+  let configPath = Path.joinApp(Cli.config || 'depend.config.js')
+
+  if (!(await Path.exists(configPath))) {
+    console.log(`${configPath} 文件不存在`)
     process.exit(0)
   }
   
-  let configPath = Path.joinApp(Cli.config)
   let config = require(configPath)
 
   await DownLoadDepend(config.repos, Path.joinApp(config.output))
