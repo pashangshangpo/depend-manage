@@ -1,6 +1,6 @@
 {
   "name": "depend-manage",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "依赖下载工具",
   "scripts": {},
   "bin": {
@@ -16,8 +16,8 @@
   "author": "https://github.com/pashangshangpo",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.19.0",
-    "node-tool": "https://github.com/pashangshangpo/node-tool.git",
-    "shell-tool": "https://github.com/pashangshangpo/shell-tool.git"
+    "@xiaozhihua/node-tool": "^0.1.0",
+    "@xiaozhihua/shell-tool": "^0.1.0",
+    "commander": "^2.19.0"
   }
 }

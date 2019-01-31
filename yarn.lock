@@ -2,6 +2,17 @@
 # yarn lockfile v1
 
 
+"@xiaozhihua/node-tool@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/@xiaozhihua/node-tool/-/node-tool-0.1.0.tgz#ae41e6050d4665e9ab1d69d87addd736a9969221"
+
+"@xiaozhihua/shell-tool@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/@xiaozhihua/shell-tool/-/shell-tool-0.1.0.tgz#2a9e52d3abd8d297483e0862bcb73c8ede522fbe"
+  dependencies:
+    "@xiaozhihua/node-tool" "^0.1.0"
+    shelljs "^0.8.3"
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/balanced-match/download/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
@@ -57,10 +68,6 @@ minimatch@^3.0.4:
   dependencies:
     brace-expansion "^1.1.7"
 
-"node-tool@https://github.com/pashangshangpo/node-tool.git":
-  version "0.1.0"
-  resolved "https://github.com/pashangshangpo/node-tool.git#ca28933ca80ecf20b825ab1307f8df9bb7178feb"
-
 once@^1.3.0:
   version "1.4.0"
   resolved "http://registry.npm.taobao.org/once/download/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
@@ -86,13 +93,6 @@ resolve@^1.1.6:
   resolved "http://registry.npm.taobao.org/resolve/download/resolve-1.10.0.tgz#3bdaaeaf45cc07f375656dfd2e54ed0810b101ba"
   dependencies:
     path-parse "^1.0.6"
-
-"shell-tool@https://github.com/pashangshangpo/shell-tool.git":
-  version "0.1.0"
-  resolved "https://github.com/pashangshangpo/shell-tool.git#9d7dd08de7ec402b53ab4ef5185f105a3195b0bc"
-  dependencies:
-    node-tool "https://github.com/pashangshangpo/node-tool.git"
-    shelljs "^0.8.3"
 
 shelljs@^0.8.3:
   version "0.8.3"
