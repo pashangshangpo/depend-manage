@@ -1,10 +1,10 @@
 {
-  "name": "download-depend",
+  "name": "depend-manage",
   "version": "0.0.1",
   "description": "依赖下载工具",
   "scripts": {},
   "bin": {
-    "download-depend": "bin/download-depend.js"
+    "depend-manage": "bin/depend-manage.js"
   },
   "keywords": [
     "frontend",
