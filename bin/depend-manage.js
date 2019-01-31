@@ -4,14 +4,14 @@ const Cli = require('commander')
 const { Path } = require('node-tool')
 const { Git, CheckYarnInstall, Exec } = require('shell-tool')
 
-const DownLoadDepend = async (repos, output) => {
+const DownLoadDepend = async ({ repos, output, install } = config) => {
   let all = []
   let checkYarn = await CheckYarnInstall()
-  let install = checkYarn ? 'yarn' : 'npm install'
+  let installType = checkYarn ? 'yarn' : 'npm install'
 
   for (let repo of repos) {
     let gitPath = repo
-    let installDepend = true
+    let installDepend = install || true
 
     if (typeof repo === 'object') {
       gitPath = repo.url
@@ -40,7 +40,7 @@ const DownLoadDepend = async (repos, output) => {
           if (installDepend) {
             console.log(`正在安装依赖 ${targetPath}`)
           
-            Exec(`cd ${targetPath} && ${install}`).then(() => {
+            Exec(`cd ${targetPath} && ${installType}`).then(() => {
               resolve()
             })
           }
@@ -67,7 +67,11 @@ Promise.resolve().then(async () => {
   
   let config = require(configPath)
 
-  await DownLoadDepend(config.repos, Path.joinApp(config.output))
+  await DownLoadDepend({
+    repos: config.repos,
+    output: Path.joinApp(config.output),
+    install: config.install,
+  })
 
   console.log('全部依赖下载完成')
 })

@@ -15,6 +15,8 @@ depend.config.js
 module.exports = {
   // 输出的路径
   output: 'src/node_modules',
+  // 为所有 repo 设置是否安装依赖，独立设置大于此配置
+  install: false,
   repos: [
     {
       // 仓库地址
