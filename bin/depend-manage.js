@@ -1,10 +1,20 @@
 #!/usr/bin/env node
 
 const Cli = require('commander')
-const { Path } = require('@xiaozhihua/node-tool')
-const { Git, CheckYarnInstall, Exec } = require('@xiaozhihua/shell-tool')
+const {
+  Path
+} = require('@xiaozhihua/node-tool')
+const {
+  Git,
+  CheckYarnInstall,
+  Exec
+} = require('@xiaozhihua/shell-tool')
 
-const DownLoadDepend = async ({ repos, output, install } = config) => {
+const DownLoadDepend = async ({
+  repos,
+  output,
+  install
+} = config) => {
   let all = []
   let checkYarn = await CheckYarnInstall()
   let installType = checkYarn ? 'yarn' : 'npm install'
@@ -12,9 +22,14 @@ const DownLoadDepend = async ({ repos, output, install } = config) => {
   for (let repo of repos) {
     let gitPath = repo
     let installDepend = install != null ? install : true
+    let branch = 'master'
 
     if (typeof repo === 'object') {
       gitPath = repo.url
+
+      if (repo.branch) {
+        branch = repo.branch
+      }
 
       if (repo.install === false) {
         installDepend = false
@@ -23,14 +38,13 @@ const DownLoadDepend = async ({ repos, output, install } = config) => {
 
     all.push(new Promise(resolve => {
       console.log(`正在克隆 ${gitPath}`)
-      
+
       Git
-        .Clone(gitPath, output)
+        .Clone(gitPath, output, branch)
         .then(res => {
           if (res.code === 0) {
             return res.targetPath
-          }
-          else {
+          } else {
             console.error(res.error)
 
             process.exit(1)
@@ -39,7 +53,7 @@ const DownLoadDepend = async ({ repos, output, install } = config) => {
         .then(targetPath => {
           if (installDepend) {
             console.log(`正在安装依赖 ${targetPath}`)
-          
+
             Exec(`cd ${targetPath} && ${installType}`).then(() => {
               resolve()
             })
@@ -64,7 +78,7 @@ Promise.resolve().then(async () => {
     console.log(`${configPath} 文件不存在`)
     process.exit(0)
   }
-  
+
   let config = require(configPath)
 
   await DownLoadDepend({
