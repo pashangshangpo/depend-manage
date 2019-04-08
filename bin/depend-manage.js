@@ -1,22 +1,12 @@
 #!/usr/bin/env node
 
 const Cli = require('commander')
-const {
-  Path
-} = require('@xiaozhihua/node-tool')
-const {
-  Git,
-  CheckYarnInstall,
-  Exec
-} = require('@xiaozhihua/shell-tool')
+const { Path } = require('@xiaozhihua/node-tool')
+const { Git, CheckYarnInstall, Exec } = require('@xiaozhihua/shell-tool')
 
 const CONFIGPATH = 'depend.config.js'
 
-const DownLoadDepend = async ({
-  repos,
-  output,
-  install
-} = config) => {
+const DownLoadDepend = async ({ repos, output, install } = config) => {
   let all = []
   let checkYarn = await CheckYarnInstall()
   let installType = checkYarn ? 'yarn' : 'npm install'
