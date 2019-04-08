@@ -37,7 +37,7 @@ const DownLoadDepend = async ({ repos, output, install } = config) => {
             if (res.code === 0) {
               return res.targetPath;
             } else {
-              console.error(res.error);
+              console.error(res.err);
 
               process.exit(1);
             }
