@@ -10,6 +10,8 @@ const {
   Exec
 } = require('@xiaozhihua/shell-tool')
 
+const CONFIGPATH = 'depend.config.js'
+
 const DownLoadDepend = async ({
   repos,
   output,
@@ -72,7 +74,7 @@ Promise.resolve().then(async () => {
     .option('-c, --config [config]', '配置文件路径')
     .parse(process.argv)
 
-  let configPath = Path.joinApp(Cli.config || 'depend.config.js')
+  let configPath = Path.joinApp(Cli.config || CONFIGPATH)
 
   if (!(await Path.exists(configPath))) {
     console.log(`${configPath} 文件不存在`)
