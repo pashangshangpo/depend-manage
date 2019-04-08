@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 
-const Cli = require("commander");
-const { Path } = require("../node_modules/@xiaozhihua/node-tool/build/main");
-const { Git, CheckYarnInstall, Exec } = require("@xiaozhihua/shell-tool");
+const Cli = require('commander')
+const { Path } = require('@xiaozhihua/node-tool')
+const { Git, CheckYarnInstall, Exec } = require('@xiaozhihua/shell-tool')
 
-console.log(Path);
+const CONFIGPATH = 'depend.config.js'
+
 const DownLoadDepend = async ({ repos, output, install } = config) => {
-  let all = [];
-  let checkYarn = await CheckYarnInstall();
-  let installType = checkYarn ? "yarn" : "npm install";
+  let all = []
+  let checkYarn = await CheckYarnInstall()
+  let installType = checkYarn ? 'yarn' : 'npm install'
 
   for (let repo of repos) {
     let gitPath = repo;
@@ -45,13 +46,12 @@ const DownLoadDepend = async ({ repos, output, install } = config) => {
             if (installDepend) {
               console.log(`正在安装依赖 ${targetPath}`);
 
-              Exec(`cd ${targetPath} && ${installType}`).then(() => {
-                resolve();
-              });
-            }
-          });
-      })
-    );
+            Exec(`cd ${targetPath} && ${installType}`).then(() => {
+              resolve()
+            })
+          }
+        })
+    }))
   }
 
   return Promise.all(all);
@@ -63,7 +63,7 @@ Promise.resolve().then(async () => {
     .option("-c, --config [config]", "配置文件路径")
     .parse(process.argv);
 
-  let configPath = Path.joinApp(Cli.config || "depend.config.js");
+  let configPath = Path.joinApp(Cli.config || CONFIGPATH)
 
   if (!(await Path.exists(configPath))) {
     console.log(`${configPath} 文件不存在`);

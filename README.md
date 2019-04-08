@@ -22,7 +22,9 @@ module.exports = {
       // 仓库地址
       url: 'https://github.com/pashangshangpo/node-tool.git',
       // 是否下载依赖
-      install: false
+      install: false,
+      // 拉取哪个分支，默认 master
+      branch: 'master',
     },
     'https://github.com/pashangshangpo/shell-tool.git'
   ],
