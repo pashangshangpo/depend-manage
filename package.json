@@ -16,8 +16,8 @@
   "author": "https://github.com/pashangshangpo",
   "license": "MIT",
   "dependencies": {
-    "@xiaozhihua/node-tool": "^0.1.0",
-    "@xiaozhihua/shell-tool": "^0.1.0",
+    "@xiaozhihua/node-tool": "^0.1.1",
+    "@xiaozhihua/shell-tool": "^0.1.6",
     "commander": "^2.19.0"
   }
 }
